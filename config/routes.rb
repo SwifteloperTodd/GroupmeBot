@@ -5,8 +5,8 @@ Rails.application.routes.draw do
   # You can have the root of your site routed with "root"
   root 'home#index'
 
-  post '/' => 'home#post'
-  post '/officer' => 'home#post'
+  post '/mav_motors' => "home#post?bot_id=#{ENV[:GROUPME_MAV_MOTORS]}"
+  post '/mav_officer' => "home#post?bot_id=#{ENV[:GROUPME_MAV_OFFICER]}"
 
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'

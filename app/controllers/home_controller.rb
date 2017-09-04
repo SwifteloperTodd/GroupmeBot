@@ -10,6 +10,7 @@ class HomeController < ApplicationController
   end
 
   def post
+    bot_id = params[:bot_id]
     user_id = params[:user_id]
     name = params[:name].downcase
     text = params[:text].downcase
@@ -37,7 +38,7 @@ class HomeController < ApplicationController
       header = {'Content-Type' => 'text/json'}
       content = {
           :text => respond_with,
-          :bot_id => ENV['GROUPME_BOT_ID']
+          :bot_id => bot_id
       }
 
       http = Net::HTTP.new(uri.host, uri.port)
